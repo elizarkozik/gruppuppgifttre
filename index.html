@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CupCakes</title>
+    <link rel="icon" href="images/logo-1.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+    <script>
+        function Delete(e) {
+            let items = [];
+            console.log(items);
+            var CurrentDataInLocalStorage = JSON.parse(localStorage.getItem("productInCart"));
+            CurrentDataInLocalStorage.map(data => {
+
+                let id = e.parentElement.children[0].textContent;
+
+                //console.log(id);
+
+                if (data.id != id.split(':').pop()) {
+
+                    console.log(data.id);
+
+                    items.push(data);
+
+                }
+
+            });
+
+            localStorage.setItem("productInCart", JSON.stringify(items));
+            window.location.reload();
+        }
+
+    </script>
+
+
+</head>
+
+<body>
+
+    <!-- Hamburger menu using html and css -->
+    <nav class="shadow">
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            &#9776;
+        </label>
+        <img class="logo-style" src="images/cake.png" alt="">
+        <label class="logo">Piece of cake</label>
+        <ul>
+            <li><a href="" class="active">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a id="cart-info" href="#cart">
+                    <span class="item-total">0</span>
+                    <i class="fas fa-cart-plus"></i>Cart
+                    <span class="cart-total"></span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Hamburger menu end -->
+
+    <header class="banner" id="banner">
+        <div class="content">
+            <h2>Piece of <span class="cake-style-color">cake</span></h2>
+        </div>
+    </header>
+
+    <!--All cart info is in product.html-->
+    <!--cart div -->
+    <div id="cart" class="cart">
+
+        <i class="far fa-times-circle"></i>
+        <h2>Your Cart</h2>
+
+
+        <!--Cartitems will be dynamically added here-->
+
+        <div class="cart-total-container">
+            <h5>total: </h5>
+            <h5> $ <strong id="cart-total" class="font-weight-bold">0</strong> </h5>
+        </div>
+        <!--end cart total -->
+        <!-- cart buttons -->
+        <div class="cart-buttons-container ">
+            <a href="#" id="clear-cart" class="btn btn-outline-secondary text-uppercase btn-pink">clear cart</a>
+            <a href="#" id="checkout" class="btn btn-outline-secondary text-uppercase btn-pink">checkout</a>
+        </div>
+    </div>
+
+
+
+    <!--End of cart div-->
+
+
+
+
+    <!--About-->
+    <section class="about">
+        <div class="row">
+            <div>
+                <img class="img1-style" src="images/mycake.jpg" alt="">
+            </div>
+            <div class="half-width">
+                <h2>
+                    About Us
+                </h2>
+                <p>
+                    Welcome to CupCakes. Soluta saepe officia veniam consectetur,
+                    vero doloremque? Nostrum optio molestias consequatur vero, repellendus explicabo id numquam ea culpa
+                    deserunt? Dolor laborum tenetur quidem. Repellat quibusdam similique tenetur, odio illo laboriosam
+                    ad debitis enim repudiandae aliquid recusandae ratione dolor mollitia illum est in!
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!--Subscribtion-->
+    <section class="sign-in-part">
+
+
+
+        <div class="subscribe">
+            <h2>Subscribe</h2>
+            <small>Sing up with your email address to recives news and updates.</small>
+        </div>
+        <div class="sign-in">
+            <input type="text" placeholder="Email Address">
+            <button class="link-button-1">SIGN UP</button>
+            <br>
+            <small>We respect your privacy.</small>
+        </div>
+
+    </section>
+
+
+    <!--footer-->
+    <footer>
+        <div>
+            <button class="bttn" onclick="window.open('http://www.youtube.com')" class="btn request-callback"><i
+                    class="media-icon fa fa-youtube-play" style="color: #c4302b;" aria-hidden="true"></i></button>
+            <button class="bttn" onclick="window.open('https://www.facebook.com')" class="btn request-callback"><i
+                    class="fa fa-facebook" style="color:  #3b5998;" aria-hidden="true"></i></button>
+            <button class="bttn" onclick="window.open('https://www.linkedin.com')" class="btn request-callback"><i
+                    class="fa fa-linkedin" style="color:  #3b5998;" aria-hidden="true"></i></button>
+            <button class="bttn" onclick="window.open('https://www.instagram.com')" class="btn request-callback"><i
+                    class="fa fa-instagram" aria-hidden="true" style="color: #c4302b;"></i></button>
+        </div>
+        <small>© 2020. Piece of cake Website. All rights reserved. Stockholm, Sweden.</small>
+    </footer>
+
+
+    <script src="main.js" defer></script>
+
+
+
+
+</body>
+
+</html>
